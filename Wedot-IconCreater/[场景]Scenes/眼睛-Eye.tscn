@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dua1vgcungmrh"]
+
+[ext_resource type="Script" path="res://[司库]Library/Mis-图形类型/Mis·圆形类.gd" id="1_cbtfu"]
+
+[sub_resource type="GDScript" id="GDScript_sk8mu"]
+script/source = "			##                ##########################
+######## ## ## #####    ##### # []
+## ## ## ## ## ## ##    ## ## # 2024-
+## ## ## ## ## ## ## ## ## ## # milo-o.fun@qq.com
+## ## ## ## ## #####    ##### ##########################
+
+## 
+@tool class_name Got·名称类 extends Node
+
+@export var 去更新 = false
+@export var 眼半径 :float
+@export var 瞳半径 :float
+@export var 瞳移量 :Vector2
+
+func _ready():
+	去更新 = true
+
+func _process(delta):
+	if 去更新: 去更新 = Mic·通用库.完成(更新眼睛)
+
+func 更新眼睛():
+	$\"Mis·圆形类-白\".半径 = 眼半径
+	$\"Mis·圆形类-黑\".半径 = 瞳半径
+	$\"Mis·圆形类-黑\".position = 瞳移量
+	$\"Mis·圆形类-白\".绘制圆形()
+	$\"Mis·圆形类-黑\".绘制圆形()
+"
+
+[node name="眼睛" type="Node2D"]
+script = SubResource("GDScript_sk8mu")
+
+[node name="Mis·圆形类-白" type="Node2D" parent="."]
+rotation = 0.785398
+script = ExtResource("1_cbtfu")
+"边数" = 20
+"面色" = Color(1, 1, 1, 1)
+
+[node name="Mis·圆形类-黑" type="Node2D" parent="."]
+rotation = 0.802851
+script = ExtResource("1_cbtfu")
+"边数" = 20

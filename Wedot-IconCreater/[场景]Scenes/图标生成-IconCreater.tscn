@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://iw5c5w0slkyo"]
+
+[ext_resource type="Script" path="res://[脚本]Scripts/ExportIcon-导出图标.gd" id="1_8ynwc"]
+[ext_resource type="Script" path="res://[脚本]Scripts/RotateGears-旋转齿轮.gd" id="1_abuvi"]
+[ext_resource type="Script" path="res://[司库]Library/Mis-图形类型/Mis·齿形类.gd" id="2_1sl3l"]
+[ext_resource type="PackedScene" uid="uid://dua1vgcungmrh" path="res://[场景]Scenes/眼睛-Eye.tscn" id="3_e2pb7"]
+
+[sub_resource type="Theme" id="Theme_ifnxh"]
+
+[node name="图标生成-IconCreater" type="Control" node_paths=PackedStringArray("视图")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ynwc")
+"指定路径" = "res://[导出]Export"
+"文件名称" = "Wedot"
+"视图" = NodePath("CenterC/SubViewportC/SubViewport")
+
+[node name="CenterC" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewportC" type="SubViewportContainer" parent="CenterC"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="CenterC/SubViewportC"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="SubViewportC" type="SubViewportContainer" parent="CenterC/SubViewportC/SubViewport"]
+custom_minimum_size = Vector2(400, 400)
+offset_left = 256.0
+offset_top = -100.0
+offset_right = 656.0
+offset_bottom = 300.0
+rotation = 0.785398
+scale = Vector2(0.9, 0.9)
+
+[node name="SubViewport" type="SubViewport" parent="CenterC/SubViewportC/SubViewport/SubViewportC"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 400)
+render_target_update_mode = 4
+
+[node name="旋转中心" type="Control" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport" node_paths=PackedStringArray("齿轮A", "齿轮B")]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 3
+anchors_preset = 0
+theme = SubResource("Theme_ifnxh")
+script = ExtResource("1_abuvi")
+"线速度" = 50.0
+"齿轮A" = NodePath("Node2D/小齿轮/Mis·齿形类")
+"齿轮B" = NodePath("Node2D/大齿轮/Mis·齿形类")
+
+[node name="Node2D" type="Node2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心"]
+position = Vector2(395, 395)
+
+[node name="小齿轮" type="Node2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D"]
+position = Vector2(10, -200)
+
+[node name="Mis·齿形类" type="Node2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/小齿轮"]
+rotation = 0.846485
+script = ExtResource("2_1sl3l")
+"齿数" = 9
+"偏度" = 0.04
+"顶齿半径" = 140.0
+"根齿半径" = 115.0
+"线色" = Color(1, 1, 1, 1)
+"线宽" = 10.0
+"面色" = Color(0.278431, 0.54902, 0.74902, 1)
+
+[node name="眼睛-右" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/小齿轮" instance=ExtResource("3_e2pb7")]
+position = Vector2(-50, 50)
+rotation = 1.79594
+scale = Vector2(-1, -1)
+"眼半径" = 32.0
+"瞳半径" = 25.0
+"瞳移量" = Vector2(2, 0)
+
+[node name="眼睛-左" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/小齿轮" instance=ExtResource("3_e2pb7")]
+position = Vector2(-50, -50)
+"眼半径" = 32.0
+"瞳半径" = 25.0
+"瞳移量" = Vector2(2, 0)
+
+[node name="大齿轮" type="Node2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D"]
+position = Vector2(-200, 10)
+
+[node name="Mis·齿形类" type="Node2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/大齿轮"]
+rotation = -0.970748
+script = ExtResource("2_1sl3l")
+"齿数" = 11
+"偏度" = 0.04
+"顶齿半径" = 170.0
+"根齿半径" = 145.0
+"线色" = Color(1, 1, 1, 1)
+"线宽" = 10.0
+"面色" = Color(0.278431, 0.54902, 0.74902, 1)
+
+[node name="眼睛-右" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/大齿轮" instance=ExtResource("3_e2pb7")]
+position = Vector2(60, -70)
+rotation = 1.79594
+scale = Vector2(-1, -1)
+"眼半径" = 40.0
+"瞳半径" = 32.0
+"瞳移量" = Vector2(3, 0)
+
+[node name="眼睛-左" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/大齿轮" instance=ExtResource("3_e2pb7")]
+position = Vector2(-60, -70)
+rotation = -0.507891
+"眼半径" = 40.0
+"瞳半径" = 32.0
+"瞳移量" = Vector2(3, 0)
+
+[node name="Line2D" type="Line2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D"]
+points = PackedVector2Array(-400, 0, 0, 0, 0, -400)
