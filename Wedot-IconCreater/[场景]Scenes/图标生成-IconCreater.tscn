@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://iw5c5w0slkyo"]
+[gd_scene load_steps=7 format=3 uid="uid://iw5c5w0slkyo"]
 
 [ext_resource type="Script" path="res://[脚本]Scripts/ExportIcon-导出图标.gd" id="1_8ynwc"]
 [ext_resource type="Script" path="res://[脚本]Scripts/RotateGears-旋转齿轮.gd" id="1_abuvi"]
 [ext_resource type="Script" path="res://[司库]Library/Mis-图形类型/Mis·齿形类.gd" id="2_1sl3l"]
 [ext_resource type="PackedScene" uid="uid://dua1vgcungmrh" path="res://[场景]Scenes/眼睛-Eye.tscn" id="3_e2pb7"]
+[ext_resource type="Texture2D" uid="uid://cd1w77jbyfj8h" path="res://[参考]reference/天青色染.png" id="5_erjgj"]
 
 [sub_resource type="Theme" id="Theme_ifnxh"]
 
@@ -55,6 +56,7 @@ layout_mode = 3
 anchors_preset = 0
 theme = SubResource("Theme_ifnxh")
 script = ExtResource("1_abuvi")
+"已启用" = true
 "线速度" = 50.0
 "齿轮A" = NodePath("Node2D/小齿轮/Mis·齿形类")
 "齿轮B" = NodePath("Node2D/大齿轮/Mis·齿形类")
@@ -66,7 +68,7 @@ position = Vector2(395, 395)
 position = Vector2(10, -200)
 
 [node name="Mis·齿形类" type="Node2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/小齿轮"]
-rotation = 0.846485
+rotation = 112.426
 script = ExtResource("2_1sl3l")
 "齿数" = 9
 "偏度" = 0.04
@@ -94,7 +96,7 @@ position = Vector2(-50, -50)
 position = Vector2(-200, 10)
 
 [node name="Mis·齿形类" type="Node2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D/大齿轮"]
-rotation = -0.970748
+rotation = -92.2616
 script = ExtResource("2_1sl3l")
 "齿数" = 11
 "偏度" = 0.04
@@ -121,3 +123,4 @@ rotation = -0.507891
 
 [node name="Line2D" type="Line2D" parent="CenterC/SubViewportC/SubViewport/SubViewportC/SubViewport/旋转中心/Node2D"]
 points = PackedVector2Array(-400, 0, 0, 0, 0, -400)
+texture = ExtResource("5_erjgj")

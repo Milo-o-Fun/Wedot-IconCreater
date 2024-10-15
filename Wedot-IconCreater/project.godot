@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 [file_customization]
 
 folder_colors={
+"res://[参考]reference/": "orange",
 "res://[司库]Library/": "purple",
 "res://[场景]Scenes/": "green",
 "res://[导出]Export/": "yellow",
