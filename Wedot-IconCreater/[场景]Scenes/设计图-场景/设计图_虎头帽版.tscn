@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://j0e3mryr5wrp"]
+[gd_scene load_steps=6 format=3 uid="uid://j0e3mryr5wrp"]
 
 [ext_resource type="Texture2D" uid="uid://cdcspcop8c3n6" path="res://[参考]reference/LOGO草图/5-齿轮虎头帽版.jpg" id="1_ara12"]
 [ext_resource type="PackedScene" uid="uid://dua1vgcungmrh" path="res://[场景]Scenes/眼睛-Eye.tscn" id="2_j5u03"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhvaj"]
+
+[sub_resource type="GDScript" id="GDScript_nwiuk"]
+script/source = "			##                ##########################
+######## ## ## #####    ##### # []
+## ## ## ## ## ## ##    ## ## # 2024-
+## ## ## ## ## ## ## ## ## ## # milo-o.fun@qq.com
+## ## ## ## ## #####    ##### ##########################
+
+## 
+@tool extends PanelContainer
+
+@export var 去更新 = false
+
+@export var 脸色 :Color
+@export var 帽色 :Color
+#@export var 线色 :Color
+#@export var 线粗 :float
+
+func _ready():
+	pass
+
+func _process(delta):
+	if 去更新: 去更新 = Mic·通用库.完成(修改样式)
+
+func 修改样式():
+	get_node(\"%虎头帽面\").color = 帽色
+	get_node(\"%娃娃脸面\").color = 脸色
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05yl3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -21,6 +49,9 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_qhvaj")
+script = SubResource("GDScript_nwiuk")
+"脸色" = Color(0.913656, 0.755476, 0.716775, 1)
+"帽色" = Color(0.380528, 0.541809, 0.808063, 1)
 metadata/_tab_index = 1
 
 [node name="5-齿轮虎头帽版" type="Sprite2D" parent="."]
@@ -44,76 +75,74 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Polygon2D2" type="Polygon2D" parent="Control"]
-color = Color(0.894438, 0.771506, 0.767931, 1)
+[node name="娃娃脸面" type="Polygon2D" parent="Control"]
+unique_name_in_owner = true
+color = Color(0.913656, 0.755476, 0.716775, 1)
 polygon = PackedVector2Array(121, 415, 142, 439, 368, 438, 394, 409, 407, 377, 351, 256, 175, 257, 117, 386, 121, 415)
 
-[node name="Line2D" type="Line2D" parent="Control/Polygon2D2"]
+[node name="Line2D" type="Line2D" parent="Control/娃娃脸面"]
 points = PackedVector2Array(121, 415, 150, 439, 368, 438, 394, 409, 407, 377, 351, 256, 175, 257, 117, 386, 121, 415)
 
-[node name="Polygon2D" type="Polygon2D" parent="Control"]
+[node name="虎头帽面" type="Polygon2D" parent="Control"]
+unique_name_in_owner = true
 position = Vector2(-318, -56)
-color = Color(0.278431, 0.54902, 0.74902, 1)
+color = Color(0.380528, 0.541809, 0.808063, 1)
 polygon = PackedVector2Array(369, 440, 435, 483, 473, 376, 496, 374, 508, 348, 531, 346, 554, 376, 577, 343, 608, 375, 625, 345, 652, 344, 657, 371, 679, 375, 720, 478, 786, 433, 745, 282, 749, 258, 781, 200, 730, 164, 690, 212, 654, 195, 658, 137, 588, 131, 580, 188, 522, 190, 503, 139, 445, 150, 460, 204, 435, 222, 386, 192, 346, 237, 400, 290, 369, 439)
 
-[node name="Line2D" type="Line2D" parent="Control/Polygon2D"]
+[node name="Line2D" type="Line2D" parent="Control/虎头帽面"]
 position = Vector2(1, 0)
 points = PackedVector2Array(369, 440, 435, 483, 473, 376, 496, 374, 508, 348, 531, 346, 554, 376, 577, 343, 608, 375, 625, 345, 652, 344, 657, 371, 679, 375, 720, 478, 786, 433, 745, 282, 749, 258, 781, 200, 730, 164, 690, 212, 654, 195, 658, 137, 588, 131, 580, 188, 522, 190, 503, 139, 445, 150, 460, 204, 435, 222, 386, 192, 346, 237, 400, 290, 369, 439)
 
-[node name="Node2D2" type="Node2D" parent="Control"]
+[node name="虎头右须" type="Node2D" parent="Control"]
+unique_name_in_owner = true
 position = Vector2(-320, -51)
 
-[node name="Line2D" type="Line2D" parent="Control/Node2D2"]
+[node name="Line2D" type="Line2D" parent="Control/虎头右须"]
 points = PackedVector2Array(706, 315, 793, 294)
 
-[node name="Line2D2" type="Line2D" parent="Control/Node2D2"]
+[node name="Line2D2" type="Line2D" parent="Control/虎头右须"]
 points = PackedVector2Array(719, 335, 797, 333)
 
-[node name="Line2D3" type="Line2D" parent="Control/Node2D2"]
+[node name="Line2D3" type="Line2D" parent="Control/虎头右须"]
 points = PackedVector2Array(713, 357, 806, 366)
 
-[node name="Node2D" type="Node2D" parent="Control"]
+[node name="虎头左须" type="Node2D" parent="Control"]
+unique_name_in_owner = true
 position = Vector2(-314, -55)
 
-[node name="Line2D" type="Line2D" parent="Control/Node2D"]
+[node name="Line2D" type="Line2D" parent="Control/虎头左须"]
 points = PackedVector2Array(360, 310, 428, 329)
 
-[node name="Line2D2" type="Line2D" parent="Control/Node2D"]
+[node name="Line2D2" type="Line2D" parent="Control/虎头左须"]
 points = PackedVector2Array(344, 340, 422, 348)
 
-[node name="Line2D3" type="Line2D" parent="Control/Node2D"]
+[node name="Line2D3" type="Line2D" parent="Control/虎头左须"]
 points = PackedVector2Array(347, 374, 420, 368)
 
-[node name="Line2D" type="Line2D" parent="Control"]
-
-[node name="Polygon2D4" type="Polygon2D" parent="Control"]
+[node name="娃娃左眼" type="Polygon2D" parent="Control"]
+unique_name_in_owner = true
 position = Vector2(-8, 50)
 polygon = PackedVector2Array(190, 290, 190, 360, 230, 360, 230, 290, 190, 290)
 
-[node name="Polygon2D4" type="Polygon2D" parent="Control/Polygon2D4"]
+[node name="瞳孔" type="Polygon2D" parent="Control/娃娃左眼"]
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(200, 300, 200, 318.812, 200, 350, 220, 350, 220, 326.669, 220, 300)
 
-[node name="Polygon2D5" type="Polygon2D" parent="Control"]
+[node name="娃娃右眼" type="Polygon2D" parent="Control"]
+unique_name_in_owner = true
 position = Vector2(101, 50)
 polygon = PackedVector2Array(190, 290, 190, 360, 230, 360, 230, 323.995, 230, 290, 190, 290)
 
-[node name="Polygon2D4" type="Polygon2D" parent="Control/Polygon2D5"]
+[node name="瞳孔" type="Polygon2D" parent="Control/娃娃右眼"]
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(200, 300, 200, 318.812, 200, 350, 220, 350, 220, 326.669, 220, 300)
 
-[node name="Polygon2D3" type="Polygon2D" parent="Control"]
-visible = false
-position = Vector2(100, 50)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(200, 300, 200, 318.812, 200, 350, 220, 350, 220, 326.669, 220, 300)
-
-[node name="眼睛2" parent="Control" instance=ExtResource("2_j5u03")]
+[node name="帽子左眼" parent="Control" instance=ExtResource("2_j5u03")]
 position = Vector2(186, 211)
 "眼半径" = 40.0
 "瞳半径" = 30.0
 
-[node name="眼睛" parent="Control" instance=ExtResource("2_j5u03")]
+[node name="帽子右眼" parent="Control" instance=ExtResource("2_j5u03")]
 position = Vector2(321, 212)
 "眼半径" = 40.0
 "瞳半径" = 30.0
