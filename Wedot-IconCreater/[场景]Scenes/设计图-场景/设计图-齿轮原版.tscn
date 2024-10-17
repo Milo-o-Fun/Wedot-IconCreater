@@ -41,7 +41,7 @@ position = Vector2(395, 395)
 position = Vector2(10, -200)
 
 [node name="Mis·齿形类" type="Node2D" parent="SubViewport/旋转中心/Node2D/小齿轮"]
-rotation = 441.722
+rotation = 451.626
 script = ExtResource("2_82kt4")
 "齿数" = 9
 "偏度" = 0.04
@@ -69,7 +69,7 @@ position = Vector2(-50, -50)
 position = Vector2(-200, 10)
 
 [node name="Mis·齿形类" type="Node2D" parent="SubViewport/旋转中心/Node2D/大齿轮"]
-rotation = -361.622
+rotation = -369.722
 script = ExtResource("2_82kt4")
 "齿数" = 11
 "偏度" = 0.04

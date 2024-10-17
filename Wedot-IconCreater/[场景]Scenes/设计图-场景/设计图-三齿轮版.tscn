@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2m8v27j1vp6f"]
+
+[ext_resource type="Script" path="res://[脚本]Scripts/RotateGears-N-旋转齿轮.gd" id="1_4lio8"]
+[ext_resource type="Script" path="res://[司库]Library/Mis-图形类型/Mis·齿形类.gd" id="2_2dlus"]
+[ext_resource type="PackedScene" uid="uid://dua1vgcungmrh" path="res://[场景]Scenes/眼睛-Eye.tscn" id="3_tuh42"]
+[ext_resource type="Texture2D" uid="uid://cd1w77jbyfj8h" path="res://[参考]reference/天青色染.png" id="4_nujbp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmdrp"]
+
+[sub_resource type="Theme" id="Theme_ifnxh"]
+
+[node name="设计图-齿轮原版" type="PanelContainer" node_paths=PackedStringArray("齿轮集")]
+custom_minimum_size = Vector2(512, 512)
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(0.9, 0.9)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dmdrp")
+script = ExtResource("1_4lio8")
+"已旋转" = true
+"线速度" = 50.0
+"齿轮集" = [NodePath("旋转中心/Node2D/大齿轮/Mis·齿形类"), NodePath("旋转中心/Node2D/中齿轮/Mis·齿形类"), NodePath("旋转中心/Node2D/小齿轮/Mis·齿形类")]
+"统一面色" = Color(0.168778, 0.575797, 0.658407, 1)
+
+[node name="旋转中心" type="Control" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_ifnxh")
+
+[node name="Node2D" type="Node2D" parent="旋转中心"]
+position = Vector2(400, 400)
+
+[node name="小齿轮" type="Node2D" parent="旋转中心/Node2D"]
+position = Vector2(10, -200)
+
+[node name="Mis·齿形类" type="Node2D" parent="旋转中心/Node2D/小齿轮"]
+rotation = 307.451
+script = ExtResource("2_2dlus")
+"齿数" = 9
+"偏度" = 0.04
+"顶齿半径" = 140.0
+"根齿半径" = 115.0
+"线色" = Color(1, 1, 1, 1)
+"线宽" = 10.0
+"面色" = Color(0.168778, 0.575797, 0.658407, 1)
+
+[node name="眼睛-右" parent="旋转中心/Node2D/小齿轮" instance=ExtResource("3_tuh42")]
+position = Vector2(-50, 50)
+rotation = 1.79594
+scale = Vector2(-1, -1)
+"眼半径" = 32.0
+"瞳半径" = 25.0
+"瞳移量" = Vector2(2, 0)
+
+[node name="眼睛-左" parent="旋转中心/Node2D/小齿轮" instance=ExtResource("3_tuh42")]
+position = Vector2(-50, -50)
+"眼半径" = 32.0
+"瞳半径" = 25.0
+"瞳移量" = Vector2(2, 0)
+
+[node name="中齿轮" type="Node2D" parent="旋转中心/Node2D"]
+position = Vector2(-200, 10)
+
+[node name="Mis·齿形类" type="Node2D" parent="旋转中心/Node2D/中齿轮"]
+rotation = -251.3
+script = ExtResource("2_2dlus")
+"齿数" = 11
+"偏度" = 0.04
+"顶齿半径" = 170.0
+"根齿半径" = 145.0
+"线色" = Color(1, 1, 1, 1)
+"线宽" = 10.0
+"面色" = Color(0.168778, 0.575797, 0.658407, 1)
+
+[node name="眼睛-右" parent="旋转中心/Node2D/中齿轮" instance=ExtResource("3_tuh42")]
+position = Vector2(60, -70)
+rotation = 1.79594
+scale = Vector2(-1, -1)
+"眼半径" = 40.0
+"瞳半径" = 32.0
+"瞳移量" = Vector2(3, 0)
+
+[node name="眼睛-左" parent="旋转中心/Node2D/中齿轮" instance=ExtResource("3_tuh42")]
+position = Vector2(-60, -70)
+rotation = -0.507891
+"眼半径" = 40.0
+"瞳半径" = 32.0
+"瞳移量" = Vector2(3, 0)
+
+[node name="大齿轮" type="Node2D" parent="旋转中心/Node2D"]
+position = Vector2(-400, -380)
+
+[node name="Mis·齿形类" type="Node2D" parent="旋转中心/Node2D/大齿轮"]
+rotation = 154.005
+script = ExtResource("2_2dlus")
+"齿数" = 18
+"偏度" = 0.02
+"顶齿半径" = 280.0
+"根齿半径" = 255.0
+"线色" = Color(1, 1, 1, 1)
+"线宽" = 10.0
+"面色" = Color(0.168778, 0.575797, 0.658407, 1)
+
+[node name="眼睛-右" parent="旋转中心/Node2D/大齿轮" instance=ExtResource("3_tuh42")]
+position = Vector2(50.6667, 144)
+rotation = 1.79594
+scale = Vector2(-1, -1)
+"眼半径" = 50.0
+"瞳半径" = 40.0
+"瞳移量" = Vector2(3, 0)
+
+[node name="眼睛-左" parent="旋转中心/Node2D/大齿轮" instance=ExtResource("3_tuh42")]
+position = Vector2(146.222, 74)
+rotation = -0.507891
+"眼半径" = 50.0
+"瞳半径" = 40.0
+"瞳移量" = Vector2(3, 0)
+
+[node name="Line2D" type="Line2D" parent="旋转中心/Node2D"]
+points = PackedVector2Array(-400, 0, 0, 0, 0, -400, -400, -400, -400, 0)
+width = 20.0
+texture = ExtResource("4_nujbp")

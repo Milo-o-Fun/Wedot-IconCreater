@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://iw5c5w0slkyo"]
+[gd_scene load_steps=13 format=3 uid="uid://iw5c5w0slkyo"]
 
 [ext_resource type="Script" path="res://[脚本]Scripts/ExportIcon-导出图标.gd" id="1_8ynwc"]
 [ext_resource type="PackedScene" uid="uid://cmcmfctlocgi0" path="res://[场景]Scenes/设计图-场景/设计图-齿轮原版.tscn" id="2_jvetv"]
 [ext_resource type="PackedScene" uid="uid://j0e3mryr5wrp" path="res://[场景]Scenes/设计图-场景/设计图_虎头帽版.tscn" id="3_8ip7j"]
+[ext_resource type="PackedScene" uid="uid://b2m8v27j1vp6f" path="res://[场景]Scenes/设计图-场景/设计图-三齿轮版.tscn" id="4_1jqxl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6kda"]
 
@@ -62,7 +63,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_lqsud")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_07fnw")
 theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_a6wrf")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_dee1g")
-current_tab = 1
+current_tab = 2
 tabs_visible = false
 
 [node name="设计图-齿轮原版" type="PanelContainer" parent="CenterC/SubViewportC/SubViewport/TabContainer"]
@@ -76,4 +77,9 @@ metadata/_tab_index = 0
 [node name="设计图-齿轮原版" parent="CenterC/SubViewportC/SubViewport/TabContainer/设计图-齿轮原版/Node2D" instance=ExtResource("2_jvetv")]
 
 [node name="设计图-虎头帽版" parent="CenterC/SubViewportC/SubViewport/TabContainer" instance=ExtResource("3_8ip7j")]
+visible = false
 layout_mode = 2
+
+[node name="设计图-齿轮原版2" parent="CenterC/SubViewportC/SubViewport/TabContainer" instance=ExtResource("4_1jqxl")]
+layout_mode = 2
+metadata/_tab_index = 2
